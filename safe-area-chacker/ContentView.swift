@@ -7,21 +7,30 @@
 
 import SwiftUI
 
+// TODO: Orientation
+// TODO: NavigationController
+// TODO: TabBarController
+
 struct ContentView: View {
   var body: some View {
     GeometryReader { proxy in
-      VStack {
+      HStack {
         Spacer()
-        VStack(alignment: .leading, spacing: 12) {
-          Text(String("\(getSystemInfo())"))
-//          Text(String("size: \(proxy.size)"))
-//          Text(String("local frame:\(proxy.frame(in: .local))"))
-          Text(String("frame:\(proxy.frame(in: .global))"))
-          Text(String("screen size:\(UIScreen.main.bounds)"))
-          Text(String("safe area insets:\(proxy.safeAreaInsets)"))
-          Text(String("status bar height:\(getStatusBarHeight())"))
+        VStack {
+          Spacer()
+          VStack(alignment: .leading, spacing: 12) {
+            Text("safe-area-checker").font(.title)
+            Text(String("\(getSystemInfo())"))
+            //          Text(String("size: \(proxy.size)"))
+            //          Text(String("local frame:\(proxy.frame(in: .local))"))
+            Text(String("frame:\(proxy.frame(in: .global))"))
+            Text(String("screen size:\(UIScreen.main.bounds)"))
+            Text(String("safe area insets:\(proxy.safeAreaInsets)"))
+            Text(String("status bar height:\(getStatusBarHeight())"))
+          }
+          .padding(.horizontal, 24)
+          Spacer()
         }
-        .padding(.horizontal, 24)
         Spacer()
       }
       .background(Color.white)
